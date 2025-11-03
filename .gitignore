@@ -1,0 +1,24 @@
+# Terraform
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfvars.json
+*.backup
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Local IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Terraform Workspace (optional: ignore if you don't want to track)
+# Workspace/
+
+# Generic infra modules — keep this! (only ignore temp files)
+# But keep: Generic_Infra_Modules/
