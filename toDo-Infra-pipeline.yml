@@ -332,7 +332,7 @@ stages:
     displayName: "Manual Validation"
     dependsOn: Scan
     pool: Terraform-Infra-Agent-Pool
-    condition: and(succeeded(), eq(variables[Build.SourceBranch'], 'refs/heads/main'), eq('${{ parameters.runScanning }}', true))
+    condition: and(succeeded(), eq( 'refs/heads/main'), eq('${{ parameters.runScanning }}', true))
     
     jobs:
 
