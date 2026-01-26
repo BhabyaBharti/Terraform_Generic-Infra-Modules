@@ -1,22 +1,18 @@
-🚀 Azure Enterprise Landing Zone with Terraform (DevSecOps-Ready)
+# 🚀 Azure Enterprise Landing Zone with Terraform (DevSecOps-Ready)
 
-📌 Overview
+## 📌 Overview
 
-This repository implements a production-ready Azure Enterprise Landing Zone using Terraform, designed to provision and manage secure, scalable, and multi-environment cloud infrastructure.
+This repository implements a **production-ready Azure Enterprise Landing Zone** using **Terraform**, designed to provision and manage **secure, scalable, and multi-environment cloud infrastructure**.
 
 It reflects real-world enterprise patterns used in regulated industries (banking, fintech, large enterprises), including:
 
-Modular Infrastructure as Code (IaC)
+- Modular Infrastructure as Code (IaC)
+- Environment isolation (Dev / UAT / Prod)
+- Secure networking foundations
+- Kubernetes-ready platform (AKS + ACR)
+- DevSecOps-enabled CI/CD pipelines
+- Approval-based infrastructure deployments
 
-Environment isolation (Dev / UAT / Prod)
-
-Secure networking foundations
-
-Kubernetes-ready platform (AKS + ACR)
-
-DevSecOps-enabled CI/CD pipelines
-
-Approval-based infrastructure deployments
 
 🧱 High-Level Architecture
 🔹 Platform Design Principles
