@@ -1,6 +1,5 @@
 🚀 Azure Enterprise Landing Zone with Terraform (DevSecOps-Ready)
 
-
 📌 Overview
 
 This repository implements a production-ready Azure Enterprise Landing Zone using Terraform, designed to provision and manage secure, scalable, and multi-environment cloud infrastructure.
@@ -19,9 +18,7 @@ DevSecOps-enabled CI/CD pipelines
 
 Approval-based infrastructure deployments
 
-
 🧱 High-Level Architecture
-
 🔹 Platform Design Principles
 
 Modular Terraform architecture
@@ -32,15 +29,15 @@ Environment-level isolation
 
 Secure-by-default configurations
 
-Automation with governance
+Automation with governance controls
 
-🔹 Core Azure Services Provisioned
+☁️ Core Azure Services Provisioned
 
 Resource Groups
 
 Virtual Networks & Subnets
 
-Network Interfaces & Public IPs
+Network Interfaces (NICs) & Public IPs
 
 Azure Bastion
 
@@ -54,7 +51,7 @@ Azure SQL Server & Databases
 
 Azure Key Vault & Secrets
 
-Storage Accounts (Terraform remote state + app usage)
+Storage Accounts (Terraform remote state + application usage)
 
 🗂 Repository Structure
 azure-enterprise-landing-zone-terraform/
@@ -88,23 +85,23 @@ azure-enterprise-landing-zone-terraform/
 
 Each Azure resource is implemented as an independent Terraform module, enabling:
 
-Reusability
+Reusability across environments
 
-Consistency across environments
+Consistent infrastructure patterns
 
-Easier maintenance
+Easier maintenance and upgrades
 
-Clear ownership boundaries
+Clear separation of responsibilities
 
 🔹 Environment Isolation
 
 Each environment (Dev, UAT, Prod) has:
 
-Its own workspace
+Its own workspace directory
 
 Independent variable definitions
 
-Separate Terraform state
+Separate Terraform state files
 
 Prevents cross-environment impact
 
@@ -124,9 +121,9 @@ Network profiles for cluster isolation
 
 Designed for:
 
-Microservices
+Microservices-based architectures
 
-Containerized applications
+Containerized enterprise applications
 
 Hybrid workloads (on-prem + cloud)
 
@@ -145,7 +142,7 @@ No secrets committed to Git
 
 🔹 Enterprise Compliance Ready
 
-IaC security scanning
+Infrastructure-as-Code security scanning
 
 Approval-based deployments
 
@@ -153,9 +150,9 @@ Auditable pipeline artifacts
 
 Policy-as-code extensibility
 
-🔁 CI/CD Pipeline – DevSecOps for Infrastructure
+🔁 CI/CD Pipeline – Terraform DevSecOps
 
-This repo includes a production-grade Azure DevOps pipeline
+This repository includes a production-grade Azure DevOps pipeline
 (toDo-Infra-pipeline.yml) implementing full Terraform DevSecOps automation.
 
 🚦 Pipeline Trigger Strategy
@@ -215,9 +212,10 @@ Environment-specific state files
 
 
 
-
 👩‍💻 Author
 
 Bhabya Bharti
 DevOps / Platform Engineer
 Terraform • Azure • Kubernetes • CI/CD • DevSecOps
+
+📎 Detailed architecture and implementation patterns are reflected across this repository and related pinned projects.
