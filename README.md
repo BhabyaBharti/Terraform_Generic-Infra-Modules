@@ -1,21 +1,26 @@
-# 🚀 Azure Enterprise Landing Zone with Terraform (DevSecOps-Ready)
+🚀 Azure Enterprise Landing Zone with Terraform (DevSecOps-Ready)
+📌 Overview
 
-## 📌 Overview
+This repository implements a production-ready Azure Enterprise Landing Zone using Terraform, designed to provision and manage secure, scalable, and multi-environment cloud infrastructure.
 
-This repository implements a **production-ready Azure Enterprise Landing Zone** using **Terraform**, designed to provision and manage **secure, scalable, and multi-environment cloud infrastructure**.
+It reflects real-world enterprise patterns used in regulated industries such as banking, fintech, and large enterprises.
 
-It reflects real-world enterprise patterns used in regulated industries (banking, fintech, large enterprises), including:
+Key Highlights
 
-- Modular Infrastructure as Code (IaC)
-- Environment isolation (Dev / UAT / Prod)
-- Secure networking foundations
-- Kubernetes-ready platform (AKS + ACR)
-- DevSecOps-enabled CI/CD pipelines
-- Approval-based infrastructure deployments
+Modular Infrastructure as Code (IaC)
 
+Environment isolation (Dev / UAT / Prod)
 
-🧱 High-Level Architecture
-🔹 Platform Design Principles
+Secure networking foundations
+
+Kubernetes-ready platform (AKS + ACR)
+
+DevSecOps-enabled CI/CD pipelines
+
+Approval-based infrastructure deployments
+
+🏗️ High-Level Architecture
+Platform Design Principles
 
 Modular Terraform architecture
 
@@ -35,7 +40,11 @@ Virtual Networks & Subnets
 
 Network Interfaces (NICs) & Public IPs
 
-Azure Bastion
+Azure Bastion (secure access)
+
+Azure Key Vault & Secrets
+
+Azure SQL Server & Databases (PaaS)
 
 Linux Virtual Machines
 
@@ -43,29 +52,23 @@ Azure Kubernetes Service (AKS)
 
 Azure Container Registry (ACR)
 
-Azure SQL Server & Databases
-
-Azure Key Vault & Secrets
-
-Storage Accounts (Terraform remote state + application usage)
-
-🗂 Repository Structure
+📁 Repository Structure
 azure-enterprise-landing-zone-terraform/
 │
 ├── Generic_Infra_Modules/
+│   ├── Resource_Group/
 │   ├── Virtual_Network/
 │   ├── Subnet/
-│   ├── NIC/
 │   ├── Public_IP/
-│   ├── Linux_Virtual_Machine/
+│   ├── NIC/
 │   ├── Azure_Bastion/
-│   ├── SQL_Server/
-│   ├── SQL_DB/
 │   ├── Key_Vault/
 │   ├── Key_Vault_Secret/
+│   ├── SQL_Server/
+│   ├── SQL_DB/
+│   ├── Linux_Virtual_Machine/
 │   ├── AKS/
-│   ├── ACR/
-│   └── Storage_Account/
+│   └── ACR/
 │
 ├── Workspace/
 │   ├── Env_Dev/
@@ -73,145 +76,148 @@ azure-enterprise-landing-zone-terraform/
 │   └── Env_Prod/
 │
 ├── toDo-Infra-pipeline.yml
-├── README.md
-└── .gitignore
+└── README.md
 
-🧩 Terraform Architecture Explained
-🔹 Modular Design
+🌍 Multi-Environment Strategy
 
-Each Azure resource is implemented as an independent Terraform module, enabling:
+Each environment (Dev, UAT, Prod) is:
 
-Reusability across environments
+Fully isolated
 
-Consistent infrastructure patterns
+Has its own Terraform state
 
-Easier maintenance and upgrades
+Uses separate backend configuration
 
-Clear separation of responsibilities
+Deployed via environment-specific pipelines
 
-🔹 Environment Isolation
+This ensures safe promotions, reduced blast radius, and compliance alignment.
 
-Each environment (Dev, UAT, Prod) has:
+🔐 Security & Governance (DevSecOps)
+Integrated Security Controls
 
-Its own workspace directory
+Checkov – IaC policy scanning
 
-Independent variable definitions
+TFLint – Terraform best practices
 
-Separate Terraform state files
+Tfsec – Security misconfiguration detection
 
-Prevents cross-environment impact
+Terrascan – Compliance as code
 
-Supports parallel deployments
+KICS – Infrastructure vulnerability scanning
+
+TruffleHog – Secrets detection
+
+All scans run automatically during PR validation.
+
+🔄 CI/CD Pipeline – Infrastructure (Azure DevOps)
+
+The toDo-Infra-pipeline.yml implements an enterprise-grade Terraform pipeline.
+
+Pipeline Capabilities
+🔹 Trigger Strategy
+
+Runs on main, feature/*, dev/*
+
+Path-based execution for environment isolation
+
+Separate PR validation pipelines
+
+🔹 Build Stage
+
+Terraform install
+
+terraform init
+
+terraform fmt
+
+terraform validate
+
+terraform plan
+
+Plan artifact publishing
+
+🔹 Scan Stage
+
+Parallel security scans (Checkov, Tfsec, TFLint, KICS, Terrascan, TruffleHog)
+
+Non-blocking scans for visibility
+
+Artifacts published for audit
+
+🔹 Manual Validation
+
+Approval gates before apply
+
+Enforced reviewer validation
+
+🔹 Deploy Stage
+
+Controlled terraform apply
+
+Environment-aware execution
+
+Remote backend with state locking
 
 ☸️ Kubernetes & Container Platform
 
-This landing zone is Kubernetes-ready and supports modern cloud-native workloads:
+This landing zone is Kubernetes-ready and supports:
 
-Azure Kubernetes Service (AKS)
+AKS cluster provisioning
 
-Azure Container Registry (ACR)
+Node pools with VMSS
 
-VMSS-backed node pools
+Private networking
 
-Network profiles for cluster isolation
+ACR integration for image pulls
+
+Secure workload identity
+
+Ready for microservices deployments
 
 Designed for:
 
-Microservices-based architectures
+Cloud AKS
 
-Containerized enterprise applications
+Hybrid & on-prem Kubernetes workloads
 
-Hybrid workloads (on-prem + cloud)
+📈 Observability & Operations
 
-🔐 Security & Governance
-🔹 Built-in Security Controls
+Designed for integration with:
 
-Azure Key Vault for secrets management
+Azure Monitor
 
-Private networking for sensitive services
+Log Analytics
 
-TLS enforcement for databases & storage
+Prometheus
 
-Identity-based access (RBAC-ready)
+Grafana
 
-No secrets committed to Git
+Enables real-time monitoring across:
 
-🔹 Enterprise Compliance Ready
+VMs
 
-Infrastructure-as-Code security scanning
+AKS clusters
 
-Approval-based deployments
+Network & platform services
 
-Auditable pipeline artifacts
+🧠 Why This Repository Matters
 
-Policy-as-code extensibility
+This repository demonstrates how enterprise cloud platforms are actually built:
 
-🔁 CI/CD Pipeline – Terraform DevSecOps
+Not a demo
 
-This repository includes a production-grade Azure DevOps pipeline
-(toDo-Infra-pipeline.yml) implementing full Terraform DevSecOps automation.
+Not toy IaC
 
-🚦 Pipeline Trigger Strategy
+Mirrors real banking / fintech environments
 
-CI Triggers
+Interview-ready architecture
 
-Branches: main, feature/*, dev/*
+Production-aligned DevSecOps workflows
 
-Paths: environment folders & modules
-
-PR Validation
-
-Terraform plan + security scans
-
-Review required before merge
-
-🧱 Pipeline Stages
-1️⃣ Build – Init, Validate & Plan
-
-Terraform version pinning
-
-terraform init, fmt, validate, plan
-
-Plan published as pipeline artifact
-
-2️⃣ Security Scanning (DevSecOps)
-
-Integrated tools:
-
-Checkov
-
-TFLint
-
-tfsec
-
-TerraScan
-
-TruffleHog
-
-KICS
-
-Ensures misconfigurations, vulnerabilities, and secrets are detected early.
-
-3️⃣ Manual Validation (Approval Gate)
-
-Mandatory human approval
-
-Aligns with enterprise change-management processes
-
-4️⃣ Deploy – Controlled Apply
-
-Terraform apply only after approval
-
-Uses remote backend
-
-Environment-specific state files
-
-
-
-👩‍💻 Author
+👤 Author
 
 Bhabya Bharti
-DevOps / Platform Engineer
-Terraform • Azure • Kubernetes • CI/CD • DevSecOps
+DevOps / Cloud Engineer
+Specialized in Terraform, Azure, Kubernetes, CI/CD, and DevSecOps
 
-📎 Detailed architecture and implementation patterns are reflected across this repository and related pinned projects.
+📎 Detailed architecture and implementation patterns are reflected in my pinned repositories.
