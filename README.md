@@ -21,6 +21,20 @@ Approval-based infrastructure deployments
 
 
 🧱 High-Level Architecture
+🔹 Platform Design Principles
+
+Modular Terraform architecture
+
+Reusable infrastructure components
+
+Environment-level isolation
+
+Secure-by-default configurations
+
+Automation with governance
+
+
+🧱 High-Level Architecture
 
 🔹 Platform Design Principles
 
